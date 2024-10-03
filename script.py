@@ -16,7 +16,7 @@ for event in data:
     e.begin = event['inicio']
     e.end = event['fin']
     e.location = event.get('nombre_lugar', 'Sin lugar')
-    e.description = f"Actividad: {event.get('nombre_actividad', 'Sin actividad')}\nProfesor: {event['profesores'][0]['nombre_profesor'] if event.get('profesores') else 'Sin profesor'}"
+    e.description = f"Actividad: {event.get('nombre_actividad', 'Sin actividad')} {'(' + event.get( 'identificador_grupo') + ')' if event.get( 'identificador_grupo') else ''}\nProfesor: {event['profesores'][0]['nombre_profesor'] if event.get('profesores') else 'Sin profesor'}"
     
     # AÃ±adir el evento al calendario
     calendar.events.add(e)

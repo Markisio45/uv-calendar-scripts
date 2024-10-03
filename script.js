@@ -8,12 +8,11 @@ let events = [];
 
 content.forEach( element => {
   let event = {};
-  console.log( "element: ", element);
   event.title = element.nombre_asignatura || "Sin Nombre";
   event.start = element.inicio;
   event.end = element.fin;
   event.location = element.nombre_lugar || "Sin Lugar";
-  event.description = `Actividad ${element.nombre_actividad || "Sin Actividad"}\nProfesor: ${element.profesores && element.profesores.length > 0 && element.profesores[0].nombre_profesor || "Sin Profesor"}`
+  event.description = `Actividad: ${element.nombre_actividad || "Sin Actividad"} ${element.identificador_grupo && `(${element.identificador_grupo})`}\nProfesor: ${element.profesores && element.profesores.length > 0 && element.profesores[0].nombre_profesor || "Sin Profesor"}`
   events.push( event);
 })
 
